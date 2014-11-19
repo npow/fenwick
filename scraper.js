@@ -56,7 +56,7 @@ page.open(url, function () {
       var downloadUrl = page.evaluate(function () {
         return document.getElementById('downloadGData').href;
       });
-      execFile('wget', ['-O', 'data/'+team+'.csv', downloadUrl], null, function () {
+      execFile('wget', ['-O', 'data/'+team+'.csv', escapeshell(downloadUrl)], null, function () {
         phantom.exit();
       });
     });
